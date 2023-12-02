@@ -10,7 +10,18 @@ module.exports = {
   ],
   ignorePatterns: ['dist', '.eslintrc.cjs'],
   parser: '@typescript-eslint/parser',
-  plugins: ['react-refresh'],
+  plugins: [
+    "react-refresh",
+    "import"
+  ],
+  settings: {
+    "import/resolver": {
+      "node": {
+        "paths": ["src"],
+        "extensions": [".js", ".jsx", ".ts", ".tsx"],
+      }
+    },
+  },
   rules: {
     "indent": [
       "error",
@@ -39,14 +50,16 @@ module.exports = {
       'warn',
       { allowConstantExport: true },
     ],
+
     // off rules
-    "react/prop-types": "off",
-    "react/react-in-jsx-scope": "off",
-    "react/jsx-filename-extension": ["error", { "extensions": [".tsx"] }],
+    "import/extensions": "off",
     'linebreak-style': 'off',
     "padding-line-between-statements": [
       "error",
       { "blankLine": "always", "prev": "*", "next": ["if", "return"] }
-    ]
+    ],
+    "react/prop-types": "off",
+    "react/react-in-jsx-scope": "off",
+    "react/jsx-filename-extension": ["error", { "extensions": [".tsx"] }]
   },
 }
