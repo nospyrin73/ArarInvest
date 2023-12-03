@@ -1,7 +1,8 @@
-import './App.css'
+import { ReactElement } from 'react';
+import TestTransform from './routes/TestTransform';
 
-export function App() {
+export default function App(): ReactElement {
     return (
-        <div></div>
+        <TestTransform />
     );
 }

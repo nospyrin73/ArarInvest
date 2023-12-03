@@ -1,0 +1,90 @@
+.Transformation3dWrapper {
+    --image-height: 360px;
+    --image-width: 540px;
+    height: var(--image-height);
+    width: var(--image-width);
+    position: relative;
+
+    .Transformation {
+        position: absolute;
+        border: 1px solid black;
+        border-radius: 20px;
+        overflow: hidden;
+        height: var(--image-height);
+        width: var(--image-width);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.5s linear;
+
+        img {
+            height: var(--image-height);
+            width: var(--image-width);
+            object-fit: cover;
+        }
+
+        &:hover {
+            transition: transform 0.1s linear;
+        }
+    }
+}
+
+.TestTransform {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    max-width: 1200px;
+    gap: 50px;
+
+    .Text {
+        max-width: 430px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        text-align: right;
+        color: rgb(98, 105, 116);
+        font-size: 17px;
+        line-height: 25.5px;
+        gap: 15px;
+
+        .Header {
+            font-size: 50px;
+            font-weight: 900;
+            color: rgb(40, 36, 96);
+            margin-block-end: 20px;
+        }
+
+        .Content {
+            margin-block-end: 20px;
+        }
+
+        .Date,
+        .Location {
+            display: flex;
+            flex-direction: row-reverse;
+            align-items: center;
+            gap: 5px;
+
+            svg {
+                fill: #E5C68B;
+            }
+        }
+    }
+
+    .Images {
+        position: relative;
+
+        .Dots {
+            position: absolute;
+            top: -35px;
+            left: -15px;
+        }
+
+        .Shape {
+            position: absolute;
+            top: -80px;
+            right: -80px;
+        }
+    }
+}
