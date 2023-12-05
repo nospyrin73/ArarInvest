@@ -4,6 +4,7 @@
     height: var(--image-height);
     width: var(--image-width);
     position: relative;
+    perspective: 1200px;
 
     .Transformation {
         position: absolute;
