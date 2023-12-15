@@ -1,79 +1,87 @@
 .Transformation3dWrapper {
-    --image-height: 360px;
-    --image-width: 540px;
-    height: var(--image-height);
-    width: var(--image-width);
-    position: relative;
     perspective: 1200px;
 
     .Transformation {
-        position: absolute;
         border: 1px solid black;
         border-radius: 20px;
         overflow: hidden;
-        height: var(--image-height);
-        width: var(--image-width);
         display: flex;
         align-items: center;
         justify-content: center;
         transition: transform 0.5s linear;
 
         img {
-            height: var(--image-height);
-            width: var(--image-width);
+            height: auto;
+            max-width: 100%;
             object-fit: cover;
         }
 
         &:hover {
-            transition: transform 0.1s linear;
+            transition: none;
         }
     }
 }
 
 .TestTransform {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: auto;
-    max-width: 1200px;
-    gap: 50px;
+    width: 100%;
+    margin-block-start: 120px;
+    margin-block-end: 40px;
+
+    .Test {
+        padding-inline: 15px;
+        margin-inline: auto;
+        max-width: 1140px;
+    }
+
+    .TestWrapper {
+        display: flex;
+        position: relative;
+    }
 
     .Text {
-        max-width: 430px;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-        text-align: right;
-        color: rgb(98, 105, 116);
-        font-size: 17px;
-        line-height: 25.5px;
-        gap: 15px;
+        padding: 15px;
+        width: 50%;
 
-        .Header {
-            font-size: 50px;
-            font-weight: 900;
-            color: rgb(40, 36, 96);
-            margin-block-end: 20px;
-        }
-
-        .Content {
-            margin-block-end: 20px;
-        }
-
-        .Date,
-        .Location {
+        .TextWrapper {
             display: flex;
-            flex-direction: row-reverse;
-            align-items: center;
-            gap: 5px;
+            flex-direction: column;
+            align-items: flex-end;
+            text-align: right;
+            color: rgb(98, 105, 116);
+            font-size: 17px;
+            line-height: 25.5px;
+            gap: 15px;
+            margin-inline: 10%;
 
-            svg {
-                fill: #E5C68B;
+            .Header {
+                font-size: 50px;
+                font-weight: 900;
+                color: rgb(40, 36, 96);
+                margin-block-end: 20px;
+            }
+
+            .Content {
+                max-width: 430px;
+                margin-block-end: 20px;
+            }
+
+            .Date,
+            .Location {
+                display: flex;
+                flex-direction: row-reverse;
+                align-items: center;
+                gap: 5px;
+
+                svg {
+                    fill: #E5C68B;
+                }
             }
         }
     }
 
     .Images {
+        width: 50%;
+        padding: 15px;
         position: relative;
 
         .Dots {

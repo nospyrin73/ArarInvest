@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable no-unused-vars */
 import {
     ReactElement, useEffect, useRef, useState,
 } from 'react';
@@ -7,36 +9,27 @@ import Transform from '../../assets/transform.png';
 export default function Transformation3d(): ReactElement {
     const ex1Ref = useRef<HTMLDivElement | null>(null);
     const transformRef = useRef<HTMLDivElement | null>(null);
-    const [rotationCoords, setRotationCoords] = useState({
-        x: 0, y: 0, translationX: 0, translationY: 0,
-    });
-    const transform = `translate(${rotationCoords.translationX}px, ${rotationCoords.translationY}px) rotateY(${rotationCoords.x}deg) rotateX(${rotationCoords.y}deg)`;
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const handleHover = (ev: any): any => {
-        const { left = 0, top = 0 } = transformRef.current?.getBoundingClientRect() || {};
-        const degree = 10;
-        const positionX = (ev.pageX - (left + 540 / 2));
-        const positionY = (ev.pageY - (top + 360 / 2));
-        const calculationX = -positionX * (degree / (540 / 2));
-        const calculationY = positionY * (degree / (360 / 2));
-        const translationX = -calculationX * (15 / degree);
-        const translationY = calculationY * (15 / degree);
-        setRotationCoords({
-            x: calculationX,
-            y: calculationY,
-            translationX,
-            translationY,
-        });
+        if (transformRef && transformRef.current && ex1Ref && ex1Ref.current) {
+            const { left = 0, top = 0 } = transformRef.current?.getBoundingClientRect() || {};
+            const { width = 0, height = 0 } = ex1Ref.current?.getBoundingClientRect() || {};
+            const degree = 10;
+            const positionX = (ev.pageX - window.scrollX - (left + width / 2));
+            const positionY = (ev.pageY - window.scrollY - (top + height / 2));
+            const calculationX = -positionX * (degree / (width / 2));
+            const calculationY = positionY * (degree / (height / 2));
+            const translationX = -calculationX * (15 / degree);
+            const translationY = calculationY * (15 / degree);
+            transformRef.current!.style.transform = `translate(${translationX}px, ${translationY}px) rotateY(${calculationX}deg) rotateX(${calculationY}deg)`;
+        }
     };
 
     const handleReset = (): void => {
-        setRotationCoords({
-            x: 0,
-            y: 0,
-            translationX: 0,
-            translationY: 0,
-        });
+        if (transformRef && transformRef.current) {
+            transformRef.current!.style.transform = 'translate(0, 0) rotateY(0deg) rotateX(0deg)';
+        }
     };
 
     useEffect(() => {
@@ -62,9 +55,6 @@ export default function Transformation3d(): ReactElement {
             <div
               ref={ transformRef }
               className="Transformation"
-              style={ {
-                  transform,
-              } }
             >
                 <img src={ Transform } alt="transform" />
             </div>

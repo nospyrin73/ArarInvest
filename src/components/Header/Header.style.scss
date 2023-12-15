@@ -1,0 +1,87 @@
+.HeaderWrapper {
+    --header-height: 120px;
+    position: absolute;
+    width: calc(100% - 80px);
+    height: var(--header-height);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-inline: 40px;
+    z-index: 1000;
+
+    .SignIn {
+        width: 15%;
+        display: flex;
+        align-items: center;
+        color: white;
+        font-weight: 700;
+        text-decoration: underline;
+        text-decoration-thickness: 3px;
+        gap: 20px;
+
+        svg {
+            fill: rgb(91, 123, 251);
+        }
+    }
+
+    .Links {
+        &:hover {
+            a {
+                opacity: 0.5;
+            }
+        }
+
+        a {
+            color: white;
+            text-decoration: none;
+            background-color: transparent;
+            font-weight: 700;
+            padding: 30px;
+            padding-block-start: 100%;
+            opacity: 0.7;
+            transition: padding 0.5s ease;
+
+            &:hover {
+                opacity: 1 !important;
+            }
+
+            @media (max-width: 1200px) {
+                font-size: 12px;
+                padding: 15px;
+            }
+        }
+    }
+
+    .Logo {
+        width: 240px;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    &[data-fixed=true] {
+        position: fixed;
+        top: -120px;
+        background-color: white;
+        transition: top 0.5s ease-in-out;
+
+        * {
+            color: black !important;
+        }
+    }
+
+    &[data-sticky=true] {
+        top: 0;
+    }
+
+    @keyframes fromTop {
+        0% {
+            height: 20px;
+        }
+
+        100% {
+            height: 200px;
+        }
+    }
+}
