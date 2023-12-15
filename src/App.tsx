@@ -1,8 +1,17 @@
-import { ReactElement } from 'react';
-import TestTransform from './routes/TestTransform';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
-export default function App(): ReactElement {
+import Home from './routes/HomePage/Home';
+
+import './Styles/main.scss';
+
+export default function App() {
     return (
-        <TestTransform />
+        <div>
+            <Router>
+                <Routes>
+                    <Route index path="/" element={ <Home /> } />
+                </Routes>
+            </Router>
+        </div>
     );
 }
