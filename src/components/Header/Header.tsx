@@ -4,6 +4,7 @@ import {
 import './Header.style.scss';
 import LogoWhite from '../../assets/logo_white_1.svg';
 import LogoColor from '../../assets/logo_color.svg';
+import Menu from '../Menu/Menu';
 
 function Globe(): ReactElement {
     return (
@@ -16,6 +17,7 @@ function Globe(): ReactElement {
 export default function Header(): ReactElement {
     const [isSticky, setSticky] = useState(false);
     const [position, setPosition] = useState(0);
+    const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
     const handleSticky = () => {
         if (window.scrollY > window.innerHeight) {
@@ -31,11 +33,21 @@ export default function Header(): ReactElement {
         }
     };
 
+    const handleResize = () => {
+        if (window.innerWidth <= 768 && !isMobile) {
+            setIsMobile(true);
+        } else if (window.innerWidth > 768 && isMobile) {
+            setIsMobile(false);
+        }
+    };
+
     useEffect(() => {
         window.addEventListener('scroll', handleSticky);
+        window.addEventListener('resize', handleResize);
 
         return () => {
             window.removeEventListener('scroll', handleSticky);
+            window.removeEventListener('resize', handleResize);
         };
     });
 
@@ -45,18 +57,24 @@ export default function Header(): ReactElement {
           data-fixed={ window.scrollY > window.innerHeight }
           data-sticky={ isSticky }
         >
-            <div className="SignIn">
-                <span>سجل الآن</span>
-                <Globe />
-            </div>
-            <div className="Links">
-                <a href="/">المتحدثون</a>
-                <a href="/">فرص الاستثمار</a>
-                <a href="/">الجلسات</a>
-                <a href="/">المقومات الاستثمارية</a>
-                <a href="/">كلمة القادة</a>
-                <a href="/">عن المنتدى</a>
-            </div>
+            { isMobile
+                ? <Menu />
+                : (
+                    <>
+                        <div className="SignIn">
+                            <span>سجل الآن</span>
+                            <Globe />
+                        </div>
+                        <div className="Links">
+                            <a href="/">المتحدثون</a>
+                            <a href="/">فرص الاستثمار</a>
+                            <a href="/">الجلسات</a>
+                            <a href="/">المقومات الاستثمارية</a>
+                            <a href="/">كلمة القادة</a>
+                            <a href="/">عن المنتدى</a>
+                        </div>
+                    </>
+                ) }
             <div className="Logo">
                 { window.scrollY > window.innerHeight
                     ? <img src={ LogoColor } alt="logo" />
