@@ -1,1 +1,7 @@
-@import './variables.scss'
+@import './variables.scss';
+@import '../fonts/fonts.scss';
+
+body {
+    font-family: Vazirmatn;
+    margin: 0;
+}
