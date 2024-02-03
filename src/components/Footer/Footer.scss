@@ -1,0 +1,29 @@
+@import '../../Styles/variables';
+
+.footer {
+    text-align: center;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    
+    &__row {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+  
+    &__item {
+      color: $primary-color;
+      font-size: 21px;
+      font-weight: 500;
+      flex: 1;
+      padding: 10px;
+    }
+
+    &__logo {
+      width: 150px;
+      aspect-ratio: auto 150 / 200;
+    }
+}
+ 

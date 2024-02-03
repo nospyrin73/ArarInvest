@@ -1,7 +1,10 @@
-@import './variables.scss';
 @import '../fonts/fonts.scss';
 
 body {
     font-family: Vazirmatn;
     margin: 0;
+}
+
+.container {
+    min-height: 100vh;
 }
