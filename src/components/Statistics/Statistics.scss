@@ -1,0 +1,64 @@
+@import '../../Styles/variables';
+
+.statistics {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__container {
+        width: 100%;
+        max-width: 100%;
+        
+        @media (min-width: 1024px) {
+            width: 85%;
+            max-width: 85%;
+        }
+    }
+
+    &__box {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        background-color: aqua;
+        padding: 15px 20px;
+        border-radius: 25px;
+        box-shadow: 0 14px 55px 0 rgba(208,202,239,.3);
+
+        @media (min-width: 1024px) {
+            flex-direction: row;
+        }
+    }
+
+    &__item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        cursor: pointer;
+        font-weight: 700;
+        color: $primary-color;
+        width: calc(50% - 30px);
+        padding: 15px;
+
+
+        @media (min-width: 768px) {
+            width: calc(25% - 30px);
+        }
+
+
+        &:hover > &-value{
+            color: $primary-color !important;
+        }
+        
+        &-value {
+            font-size: 50px;
+            color: $color-gold;
+            transition: color .3s;
+        }
+    
+        &-label {
+            font-weight: 400;
+            font-size: 18px;
+        }
+    }
+    
+}
