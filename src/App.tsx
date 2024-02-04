@@ -1,8 +1,8 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
-import { Home } from './Routes/HomePage/Home';
+import { Home } from './routes/HomePage/Home';
 
-import { Footer } from './Components/Footer/Footer';
+import { Footer } from './components/Footer/Footer';
 
 import './Styles/main.scss'
 
