@@ -15,4 +15,4 @@ export const statisticsData = [
         value: 110,
         label: 'فرصة استثمارية'
     }
-]
+];

@@ -1,17 +1,15 @@
-import {Parallex} from '../../Components/Parallax/Parallax';
-import {Statistics} from '../../Components/Statistics/Statistics';
+import {Statistics} from '../../components/Statistics/Statistics';
 import { NorthOfOpportunities } from '../../components/NorthOfOpportunities/NorthOfOpportunities';
 
 import './Home.style.scss';
 
-import { statisticsData } from '../../Data/statistics';
+import { statisticsData } from '../../data/statistics';
 
 export function Home() {
     return (
         <>
             <NorthOfOpportunities />
             <Statistics statistics={statisticsData}/>
-            {/* <Parallex /> */}
         </>
     );
 }
