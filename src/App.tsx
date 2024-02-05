@@ -4,7 +4,7 @@ import { Home } from './routes/HomePage/Home';
 
 import { Footer } from './components/Footer/Footer';
 
-import './Styles/main.scss'
+import './styles/main.scss'
 
 export function App() {
 	return (
