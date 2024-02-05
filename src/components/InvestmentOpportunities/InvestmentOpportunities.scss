@@ -1,0 +1,24 @@
+
+.InvestmentOpportunities {
+    &__Title {
+        color: var(--color-primary);
+        font-size: 50px;
+        margin-block-end: 38px;
+        padding: 15px;
+        text-align: center;
+    }
+
+    .swiper {
+        cursor: pointer;
+        margin-inline: auto;
+        width: var(--container-width);
+
+        .swiper-wrapper {
+            transition-timing-function: ease-out;
+        }
+    }
+
+    .swiper-slide {
+        width: 33% !important;
+    }
+}

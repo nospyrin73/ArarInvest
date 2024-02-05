@@ -4,12 +4,14 @@ import { NorthOfOpportunities } from '../../components/NorthOfOpportunities/Nort
 import './Home.style.scss';
 
 import { statisticsData } from '../../data/statistics';
+import { InvestmentOpportunities } from '../../components/InvestmentOpportunities/InvestmentOpportunities';
 
 export function Home() {
     return (
         <>
             <NorthOfOpportunities />
             <Statistics statistics={statisticsData}/>
+            <InvestmentOpportunities />
         </>
     );
 }
