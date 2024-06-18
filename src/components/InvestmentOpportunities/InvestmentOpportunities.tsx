@@ -16,6 +16,7 @@ import Health from './StockImages/Health.png'
 import AcademicResearch from './StockImages/AcademicResearch.png'
 import Education from './StockImages/Education.png'
 import TourismAndHotelManagement from './StockImages/TourismAndHotelManagement.png'
+import { Button } from "../../base/Button/Button";
 
 const Cards = [
     {
@@ -77,6 +78,7 @@ export function InvestmentOpportunities(): ReactElement {
                         <Card imageSrc={ imageSrc } label={ label } />
                     </SwiperSlide>
                 )) }
+                <Button text="تحميل ملف الفرص الإستثمارية" />
             </Swiper>
         </div>
     );
